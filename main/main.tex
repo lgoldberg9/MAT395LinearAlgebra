@@ -1,0 +1,71 @@
+\documentclass[12pt]{book}
+
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{enumerate} % Make lists.
+\usepackage{amsmath, amssymb, amsfonts, amsbsy, amsthm, latexsym, mathrsfs}
+\usepackage{listings} % Used to display code.
+\usepackage[margin=1in]{geometry}
+\usepackage{fourier} % Better font
+\usepackage{color, xcolor} % Colors!
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{tikz}
+
+\newcounter{nalg}[section] % defines algorithm counter for chapter-level
+\renewcommand{\thenalg}{\thesection .\arabic{nalg}} %defines appearance of the algorithm counter
+\DeclareCaptionLabelFormat{algocaption}{Algorithm \thenalg} % defines a new caption label as Algorithm x.y
+
+% Notable symbols
+\def\C{{\mathbb{C}}}
+\def\N{{\mathbb{N}}}
+\def\Q{{\mathbb{Q}}}
+\def\R{{\mathbb{R}}}
+\def\Z{{\mathbb{Z}}}
+
+% Better mod command
+\newcommand{\Mod}[1]{\ (\text{mod}\ #1)}
+
+\setlength{\headheight}{14.5pt}
+\pagestyle{headings}
+\setcounter{chapter}{-1}
+
+\frenchspacing
+\setlength{\parindent}{0pt}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+
+% Tikz Graph
+\usetikzlibrary{arrows,shapes,automata,backgrounds,positioning}
+
+\title{MAT-395: Linear Algebra Main Book}
+\author{Logan Goldberg}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\input{../chapter0/defsthms}
+\input{../chapter1/defsthms}
+\input{../chapter1/exercises}
+\input{../chapter2/defsthms}
+\input{../chapter2/exercises}
+\input{../chapter3/defsthms}
+\input{../chapter3/exercises}
+\input{../chapter7/defsthms}
+\input{../chapter7/exercises}
+\input{../chapter8/defsthms}
+\input{../chapter8/exercises}
+\input{../chapter9/defsthms}
+\input{../chapter9/exercises}
+\input{../chapter10/defsthms}
+\input{../chapter10/exercises}
+
+\end{document}

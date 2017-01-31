@@ -1,0 +1,31 @@
+Each folder contains a separate LaTeX file. The main folder is the total compilation of all LaTeX files and each chapter is placed in its own folder.
+
+Current Structure:
+.
+├── application_materials
+│   ├── checklist
+│   ├── checklist.txt
+│   ├── timeline_outline.ods
+│   └── timeline_outline.xlsx
+├── chapter0
+│   ├── chapter0defsthms.aux
+│   ├── chapter0defsthms.log
+│   └── chapter0defsthms.tex
+├── chapter1
+├── chapter10
+├── chapter2
+├── chapter3
+├── chapter7
+├── chapter8
+├── chapter9
+├── dir_structure.txt
+├── dir_structure.txt~
+├── main
+│   ├── main.aux
+│   ├── main.log
+│   ├── main.pdf
+│   ├── main.synctex.gz
+│   ├── main.tex
+│   └── main.toc
+└── misc
+    └── (Graduate Texts in Mathematics) Steven Roman-Advanced Linear Algebra-Springer (2007).pdf

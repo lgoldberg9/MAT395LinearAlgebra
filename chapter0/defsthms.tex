@@ -1,0 +1,179 @@
+\chapter{Preliminaries}
+\section{Preliminaries}
+
+\begin{definition}
+Let $S$ be a nonempty set. A \textbf{multiset} $M\subseteq S\times\Z^+$ with \textbf{underlying set} $S$ is a set of ordered pairs
+\[M=\{(s_i,n_i)\mid s_i\in S,\, n_i\in\Z^+,\,s_i\neq s_j\text{ whenever } i\neq j\}.\]
+The number $n_i$ is referred to as the \textbf{multiplicity} of the elements $s_i$ in $M$. If the underlying set of a multiset is finite, then we say that the multiset is \textbf{finite}. The \textbf{size} of the finite multiset is the sum of the multiplicies of all the elements. In other words, $size\colon M\rightarrow\Z^+$ is a function
+\[size(M)=\begin{cases}n_1+size(M\backslash\{(s_1,n_1)\}) & \text{if $M$ is nonempty}\\
+0 & \text{otherwise}
+\end{cases}\]
+which gives the size of a multiset $M$.
+\end{definition}
+
+The symbol $\cM_{m\times n}(F)$ is the set of all rectangular matrices of dimensions $m$ by $n$ with entries in the field $F$. $\cM_{m\times n}$ is used when the field entries need not be mentioned. $\cM_{n\times n}(F)$, $\cM_n(F)$, or $\cM_n$ is used to denote square matrices of dimension $n$ with scalars in $F$. The identity matrix of size $n$ is denoted by $I_n$ and $A_{i,j}$ is used to denote the $(i,j)$th entry of matrix $A$. 
+
+\begin{definition}
+The \textbf{main diagonal} of an $m\times n$ matrix $A$ is the sequence of entries
+\[A_{1,1},A_{1,2},\ldots,A_{k,k}\]
+for $k=\min\{m,n\}$.
+\end{definition}
+
+\begin{definition}
+The \textbf{trace} of a $m\times n$ matrix $A$ is the sum over the main diagonal of $A$.
+\end{definition}
+
+\begin{definition}
+The \textbf{transpose} of $A\in \cM_{m\times n}(F)$ is a matrix denoted by $A^t$ and defined by
+\[(A^t)_{i,j}=A_{j,i}.\]
+A matrix $A$ is \textbf{symmetric} if $A^t=A$ and \textbf{skew-symmetric} if $A^t=-A$.
+\end{definition}
+
+\begin{theorem}
+Let $A,B\in \cM_{m,n}$. Then
+\begin{enumerate}[label=\arabic*)]
+\item $(A^t)^t=A$
+\item $(A+B)^t=A^t+B^t$
+\item $(rA)^t=rA^t$ for all $r\in F$
+\item $(AB)^t=B^tA^t$ provided that the product $AB$ is defined.
+\item $\det(A^t)=\det(A)$.
+\end{enumerate}\qed
+\end{theorem}
+
+\begin{definition}
+Let $M\in \cM_{m\times n}$. If $B\subseteq\{1,2,\ldots,m\}$ and $C\subseteq\{1,2,\ldots,n\}$, then the \textbf{submatrix} $M[B,C]$ is the matrix obtained by keeping only the rows with index in $B$ and the columns with index in $C$.
+\end{definition}
+
+\begin{proposition}
+If $M\in \cM_{m\times n}$, $B\subseteq\{1,2,\ldots,m\}$, and $C\subseteq\{1,2,\ldots,n\}$, then the submatrix $M[B,C]$ has size $|B|\times|C|$.
+\end{proposition}
+
+\begin{definition}
+Let $A$ be a set. A \textbf{partition} of a nonempty set $A$ is a collection of subsets $\cP$ of $A$, each called \textbf{blocks}, such that
+\begin{enumerate}[label=\arabic*)]
+\item $\bigcup P = A$.
+\item For any two distinct blocks $a,b\in P$, $a\cap b = \emptyset$.
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}
+Let $M\in\cM_{m\times n}$ and $N\in\cM_{n\times k}$. Let
+\begin{enumerate}[label=\arabic*)]
+\item $\cP=\{B_1,B_2,\ldots,B_p\}$ be a partition of $\{1,2,\ldots,m\}$.
+\item $\cQ=\{C_1,C_2,\ldots,C_q\}$ be a partition of $\{1,2,\ldots,n\}$.
+\item $\cR=\{D_1,D_2,\ldots,B_r\}$ be a partition of $\{1,2,\ldots,k\}$.
+\end{enumerate}
+Matrix multiplication at the block level is a well-defined operation, that is
+\[[MN][B_i,D_j]=\sum_{C_h\in\cQ}M[B_i,C_h]N[C_h,D_j].\]
+\end{theorem}
+
+\begin{definition}
+If $B_{i,j}$ are matrices of appropriate sizes, then by the \textbf{block matrix}
+\[M=\begin{bmatrix}
+B_{1,1} & B_{1,2} & \cdots B_{1,n}\\
+\vdots & \vdots & \ddots & \cdots\\
+B_{m,1} & B_{m,2} & \cdots & B_{m,n}
+\end{bmatrix}_{\text{block}}\]
+we mean the matrix whose upper left submatrix is $B_{1,1}$, and so on.
+\end{definition}
+
+\begin{definition}
+An \textbf{elementary matrix} of type $k$ is an elementary row or column operation applied to $I_n$. 
+\begin{enumerate}[label=\arabic*)]
+\item If $k=1$, then a row or column is scaled.
+\item If $k=2$, then a row or column is interchanged.
+\item If $k=3$, then a scalar multipled of a row or column is added to another.
+\end{enumerate}
+\end{definition}
+An elementary matrix $E$ applied from the left onto $A$, e.g $EA$, is a row operation on $A$ An elementary matrix $E$ applied from the right onto $A$, e.g $AE$, is a column operation on $A$
+
+\begin{definition}
+A matrix $R$ is said to be in \textbf{row reduced echelon form} if
+\begin{enumerate}
+\item A rows consisting of 0's appear at the bottom of the matrix.
+\item In any nonzero row, the first nonzero entry is a 1. This entry is called a  \textbf{leading entry}.
+\item For any two consecutive rows, the leading entry of the lower row is to the right of the leading entry of the upper row.
+\item Any column that contains a leading entry has 0's in all other positions.
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}
+Matrices $A,B\in \cM_{m\times n}$ are \textbf{row equivalent}, denoted by $A\sim B$ if either one can be obtained from the other by a series of elementary row operations.
+\begin{enumerate}
+\item Row equivalence is an equivalence relation.
+\item A marix $A$ is row equivalent to a unique matrix $R$ that is in row reduced echelon form. $R$ is called the \textbf{row reduced echelon form} of $A$.
+\item $A$ is invertible if and only if its row reduced echelon form is the identity matrix. Hence a matrix is invertible if and only if it is the product of elementary matrices.
+\end{enumerate}
+\end{theorem}
+
+\begin{definition}
+A square matrix is \textbf{upper triangular} if all of its entries below the main diagonal are 0. Similarly, a square matrix is lower triangular if all its entries above the main diagonal are 0. A square matrix is diagonal if it is both upper triangular and lower triangular.
+\end{definition}
+
+\begin{theorem} Let $F[x]$ be a polynomial ring over the field $F$.
+\begin{enumerate}
+\item A nonconstant polynomial $f(x)\in F[x]$ is irreducible if and only if it has the property that whenever $f(x)\mid p(x)q(x)$, then $f(x)\mid p(x)$ or $f(x)\mid q(x)$. In other words, $f(x)$ is prime.
+\item If $F$ is a field, $F[x]$ is a Euclidean domain, a principal ideal domain, and a unique factorization domain.
+\item For any two polynomials $f(x),g(x)\in F[x]$, the \textbf{greatest common divisior} of $f(x)$ and $g(x)$ is the unique monic polynomial $p(x)$ over $F$ up to associates for which
+\begin{enumerate}
+\item $p(x)\mid f(x)$ and $p(x)\mid g(x)$
+\item if $r(x)\mid f(x)$ and $r(x)\mid g(x)$, then $r(x)\mid p(x)$.
+\end{enumerate}
+\item For any two polynomials $f(x)$ and $g(x)$, there exist polynomials $a(x)$ and $b(x)$ in $F[x]$ for which
+\[\gcd(f(x),g(x))=a(x)f(x)+b(x)g(x).\]
+\end{enumerate}
+\end{theorem}
+
+\begin{definition}
+Let $f\colon S\rightarrow T$. Assuming $0\in T$, the \textbf{support} of $f$ is 
+\[supp(f)=\{s\in S\mid f(s)\neq 0\}.\]
+\end{definition}
+
+\begin{definition}
+Let $\sim$ be an equivalence relation on $S$. For $a\in S$,
+\[[a]=\{b\in S\mid b\sim a\}\]
+is called the \textbf{equivalence class} of $a$.
+\end{definition}
+
+\begin{theorem} 
+The set of all equivalence relations on a set $S$ is in bijective correspondence to the set of all partitions of $S$. Furthermore,
+\begin{enumerate}
+\item The set of distinct equivalence classes corresponds to a unique partition.
+\item If $\cP$ is a partition of $S$, then the binary relation $\sim$ defined by, $a\sim b$ if and only if $a$ and $b$ belong to the same block in $\cP$, is an equivalence relation on $S$ whose equivalence classes are the blocks of $\cP$.
+\end{enumerate}
+\end{theorem}
+
+\begin{definition}
+Let $\sim$ be an equivalence relation on $S$. A function $f\colon S\rightarrow T$, where $T$ is any set, is called an \textbf{invariant} of $\sim$ if
+\[a\sim b\Rightarrow f(a)=f(b).\]
+and is a \textbf{complete invariant} if 
+\[a\sim b\Leftrightarrow f(a)=f(b).\]
+A \textbf{complete system of invariants} is a finite set of invariants of $\sim$ on $S$.
+\end{definition}
+
+\begin{definition}
+Let $\sim$ be an equivalence relation on $S$. A subset $C\subseteq S$ is said to be a set of \textbf{canonical forms} for $\sim$ if for every $s\in S$, there is exactly one $c\in C$ such that $c\sim s$. Put another way, each equivalence class intersects $C$ at exactly one element.
+\end{definition}
+Simply put, what subset of $S$ provides a unique representation for each equivalence class of $\sim$?
+
+\begin{definition}
+
+\end{definition}
+
+\begin{definition}
+
+\end{definition}
+
+\begin{definition}
+
+\end{definition}
+
+\begin{definition}
+
+\end{definition}
+
+\begin{definition}
+
+\end{definition}
+
+\section{Algebraic Structures}

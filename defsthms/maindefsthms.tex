@@ -1,0 +1,92 @@
+\documentclass[12pt]{book}
+
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{enumerate} % Make lists.
+\usepackage{amsmath, amssymb, amsfonts, amsbsy, amsthm, latexsym, mathrsfs}
+\usepackage{listings} % Used to display code.
+\usepackage[margin=1in]{geometry}
+\usepackage{fourier} % Better font
+\usepackage{color, xcolor} % Colors!
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{tikz}
+
+% Notable symbols
+\def\C{{\mathbb{C}}}
+\def\N{{\mathbb{N}}}
+\def\Q{{\mathbb{Q}}}
+\def\R{{\mathbb{R}}}
+\def\Z{{\mathbb{Z}}}
+
+% Fancy math symbols
+\def\cA{{\mathcal{A}}}
+\def\cB{{\mathcal{B}}}
+\def\cC{{\mathcal{C}}}
+\def\cD{{\mathcal{D}}}
+\def\cE{{\mathcal{E}}}
+\def\cF{{\mathcal{F}}}
+\def\cG{{\mathcal{G}}}
+\def\cH{{\mathcal{H}}}
+\def\cM{{\mathcal{M}}}
+\def\cN{{\mathcal{N}}}
+\def\cP{{\mathcal{P}}}
+\def\cQ{{\mathcal{Q}}}
+\def\cR{{\mathcal{R}}}
+
+% GLB and LUB definitions
+\DeclareMathOperator{\glb}{glb}
+\DeclareMathOperator{\lub}{lub}
+
+% Better mod command
+\newcommand{\Mod}[1]{\ (\text{mod}\ #1)}
+
+% Header and footer
+\setlength{\headheight}{14.5pt}
+\pagestyle{headings}
+
+% Chapter counter to start at 0
+\setcounter{chapter}{-1}
+
+% Stylizing and indentation
+\frenchspacing
+\setlength{\parindent}{0pt}
+
+% Table of contents spacing
+\usepackage{tocloft}
+\addtolength{\cftsecnumwidth}{10pt}
+
+% Theorem counter
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+
+% Tikz Graph
+\usetikzlibrary{arrows,shapes,automata,backgrounds,positioning}
+
+% Make title options
+\title{MAT-395: Linear Algebra Notebook}
+\author{Logan Goldberg}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\input{../chapter0/defsthms}
+\input{../chapter1/defsthms}
+\input{../chapter2/defsthms}
+\input{../chapter3/defsthms}
+\input{../chapter4/defsthms}
+\input{../chapter5/defsthms}
+\input{../chapter6/defsthms}
+\input{../chapter7/defsthms}
+\input{../chapter8/defsthms}
+\input{../chapter9/defsthms}
+\input{../chapter10/defsthms}
+
+\end{document}

@@ -1,0 +1,261 @@
+\chapter{Vector Spaces}
+\section{Reading Proofs}
+
+
+\section{Exercise Statements}
+\begin{enumerate}
+\item[1.] Let $V$ be a vector space over $F$. Prove that $0v=0$ and $r0=0$ for all $v\in V$ and $r\in F$. Describe the different 0's in these equations. Prove that if $rv=0$, then $r=0$ or $v=0$. Prove that $rv=v$ implies that $v=0$ or $r=1$.
+
+\item[3.] 
+\begin{enumerate}[label=\alph*.]
+	\item Find an abelian group $V$ and a field $F$ for which $V$ is a vector space over $F$ in at least two different ways, that is, there are two different definitions of scalar multiplication making $V$ a vector space over $F$.
+	\item Find a vector space $V$ over $F$ and a subset $S$ of $V$ that is (1) a subspace of $V$ and (2) a vector space using operations that differ from those of $V$.
+\end{enumerate}
+
+\item[4.] Suppose that $V$ is a vector space with basis $\cB=\{b_i\mid i\in I\}$ and $S$ is a subspace of $V$. Let $\{B_1,B_2,\ldots,B_k\}$ be a partition of $\cB$. Then is it true that
+\[S=\bigoplus_{i=1}^k (S\cap\left\langle B_i\right\rangle)?\]
+What if $S\cap\left\langle B_i\right\rangle\supseteq\{0\}$ for all $i$?
+
+\item[9.] Let $M$ be an $m\times n$ matrix whose rows are linearly independent. Suppose that the $k$ columns $c_{i_1},\ldots,c_{i_k}$ of $M$ span the columns space of $M$. Let $C$ be the matrix obtained from $M$ by deleting all columns except $c_{i_1},\ldots,c_{i_k}$. Show that the rows of $C$ are also linearly independent.
+
+\item[11.] Show that if $S$ is a subspace of a vector space $V$, then $\dim(S)\leq\dim(V)$. Furthermore, if $\dim(S)=\dim(V)<\infty$, then $S=V$. Give an example to show that the finiteness is required in the second statement.
+
+\item[13.] What is the relationship between $S\oplus T$ and $T\oplus S$? Is the direct sum operation commutative? Formulate and prove a similar statement concerning associativity. Is there an ``identity" for direct sum? What about ``negatives"?
+
+\item[15.] Prove that the vector space $\cC$ of all continuous functions from $\R$ to $\R$ is infinite-dimensional.
+
+\item[17.] Let $S$ be a subspace of $V$. The set $v+S=\{v+s\mid s\in S\}$ is called an \textbf{affine subspace} of $V$.
+\begin{enumerate}[label=\alph*)]
+	\item Under what conditions is an affine subspace of $V$ a subspace of $V$?
+	\item Show that any two affine subspaces of the form $v+S$ and $w+S$ are either equal or disjoint.
+\end{enumerate}
+
+\item[26.] Let $V$ be a real vector space with complexification $V^\C$ and let $U$ be a subspace of $V^\C$. Prove that there is a subspace $S$ of $V$ for which
+\[U=S^\C=\{s+ti\mid s,t\in S\}\]
+if and only if $U$ is closed under complex conjugation $\chi\colon V^\C\rightarrow V^\C$ defined by $\chi(u+iv)=u-iv$.
+\end{enumerate}
+
+\vfill
+\pagebreak
+
+\section{Proofs}
+\subsection{Proof of Exercise 1}
+Let $V$ be a vector space over $F$. Prove that $0v=0$ and $r0=0$ for all $v\in V$ and $r\in F$. Describe the different 0's in these equations. Prove that if $rv=0$, then $r=0$ or $v=0$. Prove that $rv=v$ implies that $v=0$ or $r=1$.
+
+\begin{proof}
+For this proof, let $v\in V$ and $r\in R$ both be arbitrary. We begin by showing that $0v=0$. Using the properties of the field $F$ and the distributive property,
+\[0v = (0 + 0)v = 0v + 0v.\]
+Since $0v\in V$, we use the additive inverse of $0v$ to conclude that $0v=0$. Note that $0$ in this instance corresponds to $0\in F$, the additive identity of $F$.\\
+
+From here, we will show that $r0=0$. Using the properties of the abelian group $V$ and the distributive property,
+\[r0 = r(0 + 0) = r0 + r0.\]
+Since $r0\in V$, we use the additive inverse of $r0$ to conclude that $r0=0$. Note that $0$ in this instance corresponds to $0\in V$, the zero vector of $V$.\\
+
+Next, we will show that if $rv = 0$, then $r = 0$ or $v = 0$. Assume $r\neq 0$ (because $r = 0$ is silly). Notice that $rv = 0 = r0$ since $r0 = 0$. Then $\frac{1}{r}(rv) = \frac{1}{r}(r0)$ if and only if $v = 0$.\\
+
+Finally, we show that if $rv=v$, then $v=0$ or $r=1$. Using our scalar multiplication axioms, we arrive at the conclusion that $rv = v = 1v$ if and only if $(r - 1)v = 0$. Since $r - 1\in F$, we may use the fact that if $(r - 1)v = 0$, then $r - 1 = 0$ or $v = 0$.
+\end{proof}
+
+\vfill
+\pagebreak
+
+\subsection{Proof of Exercise 3}
+\begin{enumerate}[label=\alph*.]
+	\item Find an abelian group $V$ and a field $F$ for which $V$ is a vector space over $F$ in at least two different ways, that is, there are two different definitions of scalar multiplication making $V$ a vector space over $F$.
+	\item Find a vector space $V$ over $F$ and a subset $S$ of $V$ that is (1) a subspace of $V$ and (2) a vector space using operations that differ from those of $V$.
+\end{enumerate}
+
+\begin{proof} We begin with part a.
+\begin{enumerate}[label=\alph*.] 
+\item $\C$ over $\C$ is already a vector space when equipped with ordinary addition and scalar multiplication of complex numbers. \\
+
+Therefore, define the function $g\colon\C\times\C\rightarrow\C\times\C$ given by $g((x,v))=(\overline{x},v)$ where $\overline{x}$ is the complex conjugate of $x$. When composed with the ordinary multiplication map $\textbf{mul}\colon\C\times\C\rightarrow\C$, $\textbf{mul}\circ g$, defines a scalar multiplication function. Since multiplication of complex numbers is both associative and distributive, we need only check that $1v = v$ for any $v\in\C$. Since $1\in\R$ however, $\overline{1} = 1$, so $1v = v$ for any $v\in\C$. Hence $\C$ over $\C$ with operations of ordinary addition and $\textbf{mul}\circ g$ for scalar multiplication forms a vector space.
+
+\item $\C$ over $\C$ is a vector space with ordinary addition and scalar multiplication as its operations. The subset $\R\subseteq\C$ is a subspace of $\C$ since it's closed under ordinary addition and scalar multiplication. \\
+
+Now using $\R$ as a vector space over $\R$, let $+'\colon\R\times\R\rightarrow\R$ be a vector addition function defined as $x +' y = e^xe^y$. From the properties of exponent rules, $+'$ satisfies the properties of vector addition. Therefore, $\R$ over $\R$ using $+'$ and with ordinary addition as scalar multiplication is a vector space with different operations from $\C$ over $\C$.
+\end{enumerate}
+\end{proof}
+
+\vfill
+\pagebreak
+
+\subsection{Proof of Exercise 4}
+Suppose that $V$ is a vector space with basis $\cB=\{b_i\mid i\in I\}$ and $S$ is a subspace of $V$. Let $\{B_1,B_2,\ldots,B_k\}$ be a partition of $\cB$. Then is it true that
+\[
+	S=\bigoplus_{i=1}^k (S\cap\left\langle B_i\right\rangle)?
+\]
+What if $S\cap\left\langle B_i\right\rangle\supseteq\{0\}$ for all $i$?\\
+
+\begin{proof}
+Let $V=\R^2$ and $S=\{(x,y)\mid x+2y = 0\}$. Let $\cB$ be the standard basis and $\mathbf{B}=\{\{e_1\},\{e_2\}\}$. Then notice that
+\[
+	S\cap\left\langle \{e_1\}\right\rangle = \{0\}
+	\quad
+	\text{ and }
+	\quad
+	S\cap\left\langle \{e_2\}\right\rangle = \{0\}
+\]
+Therefore, $\displaystyle\sum_{k=1}^2 \left(S\cap\left\langle\{e_i\}\right\rangle\right) = \{0\}$, so $S$ is not the direct sum of spans of blocks of basis vectors intersected with $S$.\\
+
+Alternatively, fix $k,n\in\N$ with $k<n$, let $V=\R^\omega$, and let $S=\R^n$ be a subspace of $V$. We will assume that $S\cap\left\langle B_i\right\rangle\supseteq\{0\}$. For each block $B_i\in\textbf{B}$, let $S\cap\{B_i\} = \{b_i,0\}$. Since $S$ is closed under linear combination, $\left\langle \{b_i\}\right\rangle\subseteq S\cap\{B_i\}$. Then there are $k$ basis vector of $\cB$ in $\R^n$ which, together, span a subspace $\R^k$ of $\R^n$. But since $k<n$, $\R^k$ does not span $\R^n$ by Theorem 1.7. Thus $S$ is not the direct sum of $S$ intersected with finitely many spans of blocks in partition $\mathbf{B}$.
+\end{proof}
+
+\vfill
+\pagebreak
+
+\subsection{Proof of Exercise 9}
+Let $M$ be an $m\times n$ matrix whose rows are linearly independent. Suppose that the $k$ columns $c_{i_1},\ldots,c_{i_k}$ of $M$ span the columns space of $M$. Let $C$ be the matrix obtained from $M$ by deleting all columns except $c_{i_1},\ldots,c_{i_k}$. Show that the rows of $C$ are also linearly independent.
+
+\begin{proof}
+By Theorem 1.15,  elementary column operations do not affect the rank of a matrix. Thus $rk(M) = rk(C) = n$, so the rows of $C$ are linearly independent.
+\end{proof}
+
+\vfill
+\pagebreak
+
+\subsection{Proof of Exercise 11}
+Show that if $S$ is a subspace of a vector space $V$, then $\dim(S)\leq\dim(V)$. Furthermore, if $\dim(S)=\dim(V)<\infty$, then $S=V$. Give an example to show that the finiteness is required in the second statement.
+
+\begin{proof}
+Let $S$ be a subspace of $V$. Let $\cB = \{b_i\mid i\in I\}$ and $\cC$ be bases and $V$ and $S$ respectively. Then if $v\in S$, $v$ can be written as a finite linear combination of vectors in $\cB$, where all of the coefficients are nonzero, say
+\[
+	v = \sum_{j\in B_v} r_jb_j
+\]
+where $B_v\subseteq\cB$ is the index set of basis vectors whose span contains $v$. Because $\cC$ is a basis for the subspace $S$,
+\[
+	\bigcup_{v\in S} B_v\subseteq I
+\]
+for if the vectors in $S$ can be expressed as finite linear combinations of the vectors in a proper superset $\cB'$ of $\cB$, then $\cB'$ is a maximal linearly independent set, violating the maximality of $\cB$.\\
+ 
+Since $|B_v|<\aleph_0$ for all $v\in S$, Theorem 0.17 allows us to conclude that
+\[
+	|\cC| \leq |I| \leq \aleph_0|\cB|. 
+\]
+Therefore $\dim(S)\leq \dim(V)$ as desired.
+
+(DO REST OF THIS EXERCISE)
+
+\end{proof}
+
+\vfill
+\pagebreak
+
+\subsection{Proof of Exercise 13}
+What is the relationship between $S\oplus T$ and $T\oplus S$? Is the direct sum operation commutative? Formulate and prove a similar statement concerning associativity. Is there an ``identity" for direct sum? What about ``negatives"?
+
+\begin{proof}
+I claim that $(S(V),\{0\},\oplus)$ is a commutative monoid. Let $S,T,R\in S(V)$ be independent subspaces of $V$. Note that $S\oplus T$ is itself a subspace in $S(V)$, so $S(V)$ is closed under $\oplus$. To show that $\oplus$ is associative, notice the following.
+\begin{align*}
+	(S\oplus T)\oplus R & = \{u+v\mid u\in S,v\in T\}\oplus R\\
+	& = \{(u+v)+w\mid u\in S,v\in T,w\in R\}\\
+		\intertext{Using the associativity of $+$,}
+	& = \{u+(v+w)\mid u\in S,v\in T, w\in R\}\\
+	& = U\oplus \{v+w\mid v\in T, w\in R\}\\
+	& = U\oplus (V\oplus R)
+\end{align*} 
+Hence $\oplus$ is associative. $\oplus$ is also commutative.
+\begin{align*}
+	S\oplus T & = \{u+v\mid u\in S, v\in T\}\\
+	\intertext{Using the commutativity of $+$,}
+	& = \{v+u\mid u\in S, v\in T\}\\
+	& = T\oplus S
+\end{align*}
+To show that $\{0\}$ is the identity element of $S(V)$, simply note that
+\begin{align*}
+	S\oplus \{0\} & = \{u+0\mid u\in S\}\\
+	\intertext{Since 0 is the additive identity of $V$,}
+	& = \{u\mid u\in S\} = S\\
+	& = \{0+u\mid u\in S\}\\
+	& = \{0\}\oplus S
+\end{align*}
+Despite being a commutative monoid, $(S(V),\{0\},\oplus)$ does not have inverses. Suppose for contradiction $S\oplus T=\{0\}$. Then if $x\in S\oplus T$, then $x = u + v$ for $u\in S$ and $v\in T$. But by set equality, $x = 0$, so $u=-v$, violating the independence of $S$ and $T$.\\
+
+Hence $(S(V),\{0\},\oplus)$ is a commutative monoid.
+\end{proof}
+
+\vfill
+\pagebreak
+
+\subsection{Proof of Exercise 15}
+Prove that the vector space $\cC$ of all continuous functions from $\R$ to $\R$ is infinite-dimensional.
+
+We begin with a Lemma about the linear independence of monomials.
+
+\begin{lemma}
+Fix $n\in\N$. The set of vectors $\{1,x,x^2,\ldots,x^n\}$ is a linearly independent subset of $\cC$. 
+\end{lemma}
+
+\begin{proof}
+Suppose the linear combination
+\[
+	0 = r_0x^0 + r_1x^1 + \cdots + r_nx^n.
+\]
+has a nontrivial solution. Since each $x^i$ is distinct and there is a nontrivial solution, $n>1$, so
+\[
+	x^0 = 1 = -\frac{1}{r_0}\left(r_1x^1 + \cdots + r_nx^n\right)
+\]
+Since there is no $y\in\R$ with $xy = 1$, we've arrived at a contradiction since 1 cannot be written as the sum of monomials. Hence $\{1,x,x^2,\ldots,x^n\}$ is linearly independent.
+\end{proof}
+
+Now we proceed with the proof.
+
+\begin{proof}
+Suppose that $\cC$ is finite dimensional with $n=\dim(\cC)$. Choose basis $\beta$ with $|\beta| = n$. Notice that the set $\{1,x,x^2,x^3,\ldots,x^n\}$ is a linearly independent set by Lemma 1.3.2 of cardinality $n+1$. This violates the maximality of $\beta$. Since $n\in\N$ was arbitrary, $\cC$ is infinite-dimensional. 
+\end{proof}
+
+\vfill
+\pagebreak
+
+\subsection{Proof of Exercise 17}
+Let $S$ be a subspace of $V$. The set $v+S=\{v+s\mid s\in S\}$ is called an \textbf{affine subspace} of $V$.
+\begin{enumerate}[label=\alph*)]
+	\item Under what conditions is an affine subspace of $V$ a subspace of $V$?
+	\item Show that any two affine subspaces of the form $v+S$ and $w+S$ are either equal or disjoint.
+\end{enumerate}
+
+\begin{proof} Let $S$ be a subspace of the vector space $V$.
+\begin{enumerate}[label=\alph*.]
+\item I claim that $s+V$ is a subspace if and only if $v\in S$. Assume the contrary that $v+S$ is a subspace with $v\notin S$; it should then be closed under linear combination. Let $u_1,u_2\in v+S$ and fix $a,b\in F$. Then $au_1 + bu_2\in v+S$. However,
+\[
+	au_1 + bu_2 = a(v+s_1) + b(v+s_2) = (a+b)v + (as_1 + bs_2).
+\]
+This new vector is not in $v+S$, so $S$ is not a subspace. On the other hand, $v$ in the subspace $S$ means that $v+S$ is a subspace since $S$ is closed under linear combination.
+
+\item Let $v,w\in V$ be vectors and let $S$ be an arbitrary subspace. Let $v + S$ and $w + S$ be affine subspaces of $V$. For argument's sake, $(v + S)\cap(w + S)$ is empty or nonempty. Suppose there is some $u\in (v+S)\cap(w+S)$. Fix $s_1,s_2\in S$ with $u = v + s_1 = w + s_2$. Then 
+\[
+	u = v + s_1 = w + s_2 \Leftrightarrow v - w = s_1 - s_2 \Leftrightarrow (v - w) \in S
+\]
+Now suppose that $x\in v + S$. Fix $t\in S$ with $x = v + t$. Since $S$ is closed under linear combination,
+\[
+	v + t = v + (t + 0) = v + t - (v - w) + (s_1 - s_2) = w + (t + s_1 - s_2).
+\]
+Because $s_1 - s_2\in S$, $x\in w + S$. If $x\in w+S$, then a similar argument will show that $x\in v+S$. Hence $v + S = w + S$.
+
+
+\end{enumerate}
+\end{proof}
+
+\vfill
+\pagebreak
+
+\subsection{Proof of Exercise 26}
+Let $V$ be a real vector space with complexification $V^\C$ and let $U$ be a subspace of $V^\C$. Prove that there is a subspace $S$ of $V$ for which
+\[U=S^\C=\{s+ti\mid s,t\in S\}\]
+if and only if $U$ is closed under complex conjugation $\chi\colon V^\C\rightarrow V^\C$ defined by $\chi(u+iv)=u-iv$.
+
+\begin{proof}
+Let $U$ be a subspace of $V^\C$. We will show that there is a subspace $S$ of $V$ such that $U=S^\C$ if and only if $U$ is closed under the complex conjugate map.
+
+Suppose that $S$ is a subspace of $V$ such that $U = S^\C$. Let $(v,w)\in U$. Since $(v,w)\in U$, $v$ and $w$ are in $S$. Since $S$ is a subspace, $0\in S$ and $-w\in S$ as well. Therefore, $(v,-w)\in U$, and thus $U$ is closed under $\chi$.\\
+
+Alternatively, assume that $U$ is closed under $\chi$. Let $U = S \times S$. Let $(a+bi)\in\C$ and $(v,w)\in U$ both be arbitrary. Then 
+\[
+	(a+bi)(v,w) = (av - bw, aw + bv) \in U
+\]
+Since $U$ is closed under the complex conjugate map, $(av - bw, -aw - bv)\in U$ as well. Furthermore, since $U$ is a subspace, $U$ is closed under linear combination. Thus,
+\[
+	(av - bw, aw + bv) + (av - bw, -aw - bv) = (2av - 2bw, 0) \in U.
+\]
+By definition of $U$, $U = S\times S$, so $av - bw\in S$. Hence $S$ is closed under linear combination, and thus $S$ is a subspace of $V$.
+\end{proof}
